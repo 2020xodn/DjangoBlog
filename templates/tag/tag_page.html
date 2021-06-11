@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+<br>
+<div>
+    <div class="container my-3">
+        <table class="table">
+            <thead>
+            <tr class="thead-dark" style="text-align:center;" >
+                <th colspan="2">전체 {{ posting_list.count }}개의 포스팅 중에서 태그 검색</th>
+            </tr>
+            </thead>
+            <tbody class="addClassNumber">
+            {% if tags %}
+                {% for tag, number in tags %}
+                <tr>
+                    <td width="13%"><button class="btn btn-outline-secondary tagBox" value="{{ tag }}"
+                                type="button">{{ tag }}</button></td>
+                    <td>{{ number }} 개의 포스팅이 있습니다.</td>
+                </tr>
+                {% endfor %}
+            {% endif %}
+            </tbody>
+        </table>
+    </div>
+
+    <form id="searchForm" method="get" action="{% url 'index' %}">
+        <input type="hidden" id="kw" name="kw" value="{{ kw|default_if_none:'' }}">
+        <input type="hidden" id="page" name="page" value="{{ page }}">
+    </form>
+</div>
+{% endblock %}
+
+{% block script %}
+<script type='text/javascript'>
+$(document).ready(function(){
+    $(".addClassNumber").children().children().children().each(function(i){
+        $(this).addClass("tags" + (i + 1));
+    });
+
+    $(".tagBox").on('click', function() {
+        $("#kw").val($(this).val());
+        $("#searchForm").submit();
+    });
+});
+</script>
+{% endblock %}

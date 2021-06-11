@@ -1,0 +1,65 @@
+.menubar_top{
+    position: fixed;
+    z-index:1;
+    width:100%;
+}
+
+.side_toggle_btn::before{
+    content: ">";
+    display: inline-block;
+    width:50px;
+    line-height:50px;
+    font-size:25px;
+    text-align:center;
+    border-right:1px solid #000;
+}
+
+.side_input:checked ~ .side_toggle_btn::before{
+    content: "<";
+}
+
+.side_toggle_btn{
+    font-size:30px;
+}
+
+.blind{
+    position:absolute;
+    top:0;
+    left:0;
+    width: 1px;
+    height : 1px;
+    margin : -1px;
+    overflow : hidden;
+    clip : rect(0, 0, 0, 0);
+}
+
+header{
+    border-bottom: 1px solid #000;
+}
+
+.side_input:checked ~ .side_list{
+    left:0;
+}
+
+.side_list{
+    position:absolute;
+    left:-180px;
+    top:50px;
+    bottom:0;
+    border-right:1px solid #000;
+    width:180px;
+    font-size: 24px;
+    transition: 0.3s ease-in;
+    background-color:grey;
+    z-index:1;
+}
+
+.side_link{
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    padding: 30px 0;
+    border-bottom: 1px solid #000;
+
+    color:white;
+}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+<br>
+<div>
+    <div class="container my-3" width="50%">
+        <table class="table" >
+            <thead >
+            <tr class="thead-dark" style="text-align:center;" >
+                <th style="" colspan="2">I n f o </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            {% if info_data %}
+                {% for question, answer in info_data %}
+                    {% if question == "깃허브" %}
+                    <tr>
+                        <td width="13%">{{ question }}</td>
+                        <td><a href="{{ answer }}">{{ answer }}</a></td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td width="13%">{{ question }}</td>
+                        <td>{{ answer }}</td>
+                    </tr>
+                    {% endif %}
+
+
+                {% endfor %}
+            {% endif %}
+
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+<!-- 네비게이션바 -->
+<nav class="menubar_top navbar-expand-lg navbar-light bg-light border-bottom" style="">
+<!--<nav style="position: fixed; z-index:1;">-->
+    <input type="checkbox" id="side_btn" class="side_input blind"/>
+    <label for="side_btn" class="side_toggle_btn"></label>
+    <div class="side_list d-flex flex-column flex-shrink-0 p-3 text-white" style="position: fixed;">
+
+        <a href="{% url 'show_main' %}" class="side_link">Main</a>
+        <a href="{% url 'tabo:index' %}" class="side_link">Study Board</a>
+        <a href="{% url 'tabo:show_tags' %}" class="side_link">Tag</a>
+        <a href="{% url 'QA:QAList' %}" class="side_link">Q&A</a>
+        <a href="{% url 'tabo:show_info' %}" class="side_link">Info</a>
+    </div>
+    <a class="navbar-brand" href="{% url 'show_main' %}">Main</a>
+    1700000000000000 누구누구의 블로그
+
+    {% if user.is_authenticated %}
+        <a class="" href="{% url 'common:logout' %}">{{ user.username }} (로그아웃)</a>
+    {% else %}
+        <a class="" href="{% url 'common:login' %}">로그인                   </a>
+    {% endif %}
+</nav>
+<div style="padding-top:50px;"></div>
