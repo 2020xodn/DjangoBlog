@@ -10,6 +10,11 @@ def sub(value, arg):
     return value - arg
 
 
+@register.filter
+def remainder(value, arg):
+    return value % arg
+
+
 @register.filter()
 def mark(value):
     extensions = ["nl2br", "fenced_code"]

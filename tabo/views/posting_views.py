@@ -5,7 +5,7 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 
 from ..forms import PostingForm
-from ..models import Posting
+from ..models import Posting, Photo, File
 
 from utils.commonMethod import canDelete
 
@@ -25,6 +25,21 @@ def posting_create(request):
             posting.author = request.user
             posting.create_date = timezone.now()
             posting.save()
+
+            for img in request.FILES.getlist('imgs'):
+                photo = Photo()
+                photo.posting = posting
+                photo.image = img
+                photo.save()
+
+            for f in request.FILES.getlist('files'):
+                file = File()
+                file.posting = posting
+                file.file = f
+                file.save()
+                pass
+
+
             return redirect('tabo:index')
     else:
         form = PostingForm()

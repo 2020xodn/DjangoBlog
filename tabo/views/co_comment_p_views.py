@@ -6,8 +6,7 @@ from django.utils import timezone
 from ..forms import Co_Comment_P_Form
 from ..models import Posting, Comment_P, Co_Comment_P
 
-from .commonMethod import canDelete
-
+from utils.commonMethod import canDelete
 
 @login_required(login_url='common:login')
 def co_comment_p_create(request, comment_p_id):

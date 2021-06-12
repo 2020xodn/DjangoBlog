@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load tabo_filter %}
+{% load static %}
 {% block content %}
 <div class="container my-3">
     <!-- 검색, 정렬 기능 -->
@@ -13,7 +14,7 @@
 <!--                <option value="popular" {% if so == 'popular' %}selected{% endif %}>댓글순</option>-->
             </select>
         </div>
-        <h3>Posting</h3>
+        <h3 style="z-index=1; text-align:center; position:absolute; left:47%">Posting</h3>
         <div class="col-4 input-group">
             <input type="text" class="form-control kw" value="{{ kw|default_if_none:'' }}">
             <div class="input-group-append">
@@ -22,51 +23,79 @@
         </div>
     </div>
 
-    <table class="table">
+    <table class="table" style="border:1px solid #444444;">
         <thead>
         <tr class="thead-dark" style="text-align:center;">
-            <th style="width:10%">번호</th>
-            <th width="10%">태그</th>
-            <th width="40%">제목</th>
-            <th width="10%">작성자</th>
-            <th>작성일시</th>
-            <th width="10%">조회수</th>
-            <th width="10%">추천</th>
+            <th style="" colspan="4">포스팅 {{ posting_num }}개의 글</th>
         </tr>
         </thead>
-        <tbody>
+        <tr style="border:1px solid #444444;">
         {% if posting_list %}
-        <tr class="text-center" style="text-align:center;">
-            {% for posting, commentNum in posting_list %}
-            <tr style="text-align:center;">
-                <td>{{ page.paginator.count|sub:page.start_index|sub:forloop.counter0|add:1 }}</td>
-                <td>{{ posting.tag }} </td>
-                <td class="text-left">
-                    <a href="{% url 'tabo:detail' posting.id %}">{{ posting.subject }}</a>
-                    {% if commentNum > 0 %}
-                        <span class="text-danger small ml-2">{{ commentNum }}</span>
-                    {% endif %}
-                </td>
-                <td>{{ posting.author.username }}</td>
-                {% if posting.create_date.year == today.year and posting.create_date.month == today.month and posting.create_date.day == today.day %}
-                    <td>{{ posting.create_date|date:'H:i' }}</td>
-                {% elif posting.create_date.year == today.year %}
-                    <td>{{ posting.create_date|date:'m-d H:i' }}</td>
-                {% else %}
-                    <td>{{ posting.create_date|date:'Y-m-d H:i' }}</td>
-                {% endif %}
-                <td>{{ posting.hits }}</td>
-                <td><span class="badge badge-warning px-2 py-1">{{ posting.voter.all.count }}</span></td>
-            </tr>
+            {% for posting, commentNum, reImage in posting_list %}
+                        <td height="250" width="250" style="border:1px solid #444444;">
+                            <div>
+                                <a href="{% url 'tabo:detail' posting.id %}"><img src="{{ reImage.image.url}}" width="200"></a><br>
+                                <b><a href="{% url 'tabo:detail' posting.id %}">{{ posting.subject }}</a></b><br>
+                                {% if posting.create_date.year == today.year and posting.create_date.month == today.month and posting.create_date.day == today.day %}
+                                    {{ posting.create_date|date:'H:i' }}
+                                {% elif posting.create_date.year == today.year %}
+                                    {{ posting.create_date|date:'m-d H:i' }}
+                                {% else %}
+                                    {{ posting.create_date|date:'Y-m-d H:i' }}
+                                {% endif %}
+                                <br><br>
+                                <img src="{% static '/images/comment.png' %}" width="18" height="18"> {{ commentNum }}
+                                <img src="{% static '/images/hits.png' %}" width="25" height="18"> {{ posting.hits }}
+                                <img src="{% static '/images/star.png' %}" width="18" height="18"> {{ posting.voter.all.count }}
+                            </div>
+                        </td>
+
+                        {% if forloop.counter|remainder:4 == 0%}
+                        </tr>
+                        <tr>
+                        {% endif%}
+
             {% endfor %}
-        </tr>
+
+            {% if renderPostingNum == 3 %}
+                        <td width="25%"></td>
+            {% elif renderPostingNum == 2 %}
+                        <td width="25%"></td><td width="25%"></td>
+            {% elif renderPostingNum == 1 %}
+                        <td width="25%"></td><td width="25%"></td><td width="25%"></td>
+            {% endif %}
+                            </tr>
         {% else %}
-        <tr>
-            <td colspan="3">게시글이 없습니다.</td>
-        </tr>
+            <tr>
+                <td colspan="3">게시글이 없습니다.</td>
+            </tr>
         {% endif %}
-        </tbody>
+
     </table>
+<!--    <table class="table">-->
+<!--        <thead>-->
+<!--        <tr class="thead-dark" style="text-align:center;">-->
+<!--            <th style="width:10%">번호</th>-->
+<!--            <th width="10%">태그</th>-->
+<!--            <th width="40%">제목</th>-->
+<!--            <th width="10%">작성자</th>-->
+<!--            <th>작성일시</th>-->
+<!--            <th width="10%">조회수</th>-->
+<!--            <th width="10%">추천</th>-->
+<!--        </tr>-->
+<!--        </thead>-->
+<!--        <tbody>-->
+<!--        {% if posting_list %}-->
+<!--        <tr class="text-center" style="text-align:center;">-->
+
+<!--        </tr>-->
+<!--        {% else %}-->
+<!--        <tr>-->
+<!--            <td colspan="3">게시글이 없습니다.</td>-->
+<!--        </tr>-->
+<!--        {% endif %}-->
+<!--        </tbody>-->
+<!--    </table>-->
 
     <!-- 페이징처리 시작 -->
     <ul class="pagination justify-content-center">

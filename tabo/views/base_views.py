@@ -36,7 +36,7 @@ def index(request):
             Q(comment_p__author__username__icontains=kw) # 답변 글쓴이검색
         ).distinct()
 
-    paginator = Paginator(posting_list, 10)  # 페이지당 10개씩 보여주기
+    paginator = Paginator(posting_list, 12)  # 페이지당 10개씩 보여주기
     page_obj = paginator.get_page(page)
     today = timezone.now()
 
@@ -53,9 +53,15 @@ def index(request):
 
         commentNum.append(tmp)
 
-    posting_commentNum = [[page_obj[i], commentNum[i]] for i in range(len(page_obj))]
+    posting_commentNum_reImage = [
+        [page_obj[i], commentNum[i], page_obj[i].photo_set.all()[0]]
+        if len(page_obj[i].photo_set.all()) != 0 else [page_obj[i], commentNum[i], None]
+        for i in range(len(page_obj))
+    ]
 
-    context = {'posting_list': posting_commentNum, 'page': page, 'kw': kw, 'so': so, 'today': today, 'groupList': groupList, 'page': page_obj}
+
+    context = {'posting_list': posting_commentNum_reImage, 'page': page, 'kw': kw, 'so': so,
+               'today': today, 'groupList': groupList, 'page': page_obj, 'posting_num': len(posting_list), 'renderPostingNum': len(page_obj)}
     return render(request, 'tabo/posting_list.html', context)
 
 

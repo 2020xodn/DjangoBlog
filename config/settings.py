@@ -23,12 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'a*#f6axd95bcg1teyl%*m9(u-4r$cu$imyvxm3$rvi!yx@@b)_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = [
-    'localhost',
-    '[2020xodn].pythonanywhere.com'
-]
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -132,7 +129,6 @@ STATICFILES_DIRS = [
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
-# 미디어 파일을 관리할 루트 media 디렉터리
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-# 각 media file에 대한 URL prefix
 MEDIA_URL = '/media/'
+

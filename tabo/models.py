@@ -23,9 +23,13 @@ class Posting(models.Model):    # 게시글
 
 
 class Photo(models.Model):
-    post = models.ForeignKey(Posting, on_delete=models.CASCADE, null=True)
+    posting = models.ForeignKey(Posting, on_delete=models.CASCADE, null=True)
     image = models.ImageField(upload_to='images/', blank=True, null=True)
 
+
+class File(models.Model):
+    posting = models.ForeignKey(Posting, on_delete=models.CASCADE, null=True)
+    file = models.FileField(upload_to='files/', blank=True, null=True)
 
 
 class Comment_P(models.Model):  # 게시글의 댓글

@@ -35,6 +35,10 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
+                    <!-- 이미지 출력 -->
+                    {% for photo in posting.photo_set.all%}
+                        <img src="{{ photo.image.url}}" width="500"><br>
+                    {% endfor %}
                     <div class="card-text" style="white-space: pre-line;">{{ posting.content|mark }}</div>
 
                     {% if request.user == posting.author %}
@@ -45,6 +49,17 @@
                             data-uri="{% url 'tabo:posting_delete' posting.id  %}">삭제</a>
                     </div>
                     {% endif %}
+
+                    <br>
+                    {% if posting.file_set.all %}
+                        <h4>첨부파일</h4>
+                        <div style="">
+                            {% for f in posting.file_set.all%}
+                                <li><a href="{{ f.file.url}}">{{ f.file.name }}</a></li>
+                            {% endfor %}
+                        </div>
+                    {% endif%}
+
                 </div>
 
                 <!-- 추천영역 -->

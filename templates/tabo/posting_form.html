@@ -94,14 +94,29 @@
                       id="content" rows="10">{{ form.content.value|default_if_none:'' }}</textarea>
         </div>
 
-        <input type="file" name="imgs" multiple>
+
+        <div>
+            대표 이미지 :
+            <input type="file" name="imgs" multiple>
+        </div><br>
+        <div>
+            이미지 :
+            <input type="file" name="imgs" multiple>
+            <input type="file" name="imgs" multiple>
+        </div><br>
+        <div>
+            파　일  :
+            <input type="file" name="files" multiple>
+            <input type="file" name="files" multiple>
+            <input type="file" name="files" multiple>
+        </div><br>
 
         <button type="submit" class="btn btn-primary">저장하기</button>
 
         {% if form.tag.value == none %}
-            <button type="button" onclick="location.href= {% url 'tabo:index' %}" class="btn btn-primary">뒤로</button>
+        <button type="button" onclick="location.href= {% url 'tabo:index' %}" class="btn btn-primary">뒤로</button>
         {% else %}
-            <button onclick="history.back()" class="btn btn-primary">뒤로</button>
+        <button onclick="history.back()" class="btn btn-primary">뒤로</button>
         {% endif %}
     </form>
 </div>
