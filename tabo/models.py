@@ -22,6 +22,12 @@ class Posting(models.Model):    # 게시글
         return self.hits
 
 
+class Photo(models.Model):
+    post = models.ForeignKey(Posting, on_delete=models.CASCADE, null=True)
+    image = models.ImageField(upload_to='images/', blank=True, null=True)
+
+
+
 class Comment_P(models.Model):  # 게시글의 댓글
     posting = models.ForeignKey(Posting, on_delete=models.CASCADE)
     content = models.TextField()
