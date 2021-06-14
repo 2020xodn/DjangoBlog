@@ -54,3 +54,7 @@ class Co_Comment_P(models.Model):  # 게시글의 대댓글
 
     def __str__(self):
         return self.content
+
+
+class New_Tag(models.Model):
+    content = models.TextField()

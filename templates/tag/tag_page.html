@@ -13,7 +13,8 @@
             {% if tags %}
                 {% for tag, number in tags %}
                 <tr>
-                    <td width="13%"><button class="btn btn-outline-secondary tagBox" value="{{ tag }}"
+                    <td width="13%">
+                        <button class="btn btn-outline-secondary tagBox" value="{{ tag }}"
                                 type="button">{{ tag }}</button></td>
                     <td>{{ number }} 개의 포스팅이 있습니다.</td>
                 </tr>
@@ -21,7 +22,10 @@
             {% endif %}
             </tbody>
         </table>
+
     </div>
+
+
 
     <form id="searchForm" method="get" action="{% url 'index' %}">
         <input type="hidden" id="kw" name="kw" value="{{ kw|default_if_none:'' }}">

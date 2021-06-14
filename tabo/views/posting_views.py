@@ -8,6 +8,7 @@ from ..forms import PostingForm
 from ..models import Posting, Photo, File
 
 from utils.commonMethod import canDelete
+from utils.tagList import tagList
 
 
 @login_required(login_url='common:login')
@@ -39,11 +40,10 @@ def posting_create(request):
                 file.save()
                 pass
 
-
             return redirect('tabo:index')
     else:
         form = PostingForm()
-    context = {'form': form}
+    context = {'form': form, 'tag_list': tagList}
     return render(request, 'tabo/posting_form.html', context)
 
 
@@ -63,7 +63,7 @@ def posting_modify(request, posting_id):
             return redirect('tabo:detail', posting_id=posting.id)
     else:
         form = PostingForm(instance=posting)
-    context = {'form': form}
+    context = {'form': form, 'tag_list': tagList}
     return render(request, 'tabo/posting_form.html', context)
 
 

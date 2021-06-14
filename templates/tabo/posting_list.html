@@ -32,7 +32,7 @@
         <tr style="border:1px solid #444444;">
         {% if posting_list %}
             {% for posting, commentNum, reImage in posting_list %}
-                        <td height="250" width="250" style="border:1px solid #444444;">
+                        <td height="230" width="250" style="border:1px solid #444444;">
                             <div>
                                 <a href="{% url 'tabo:detail' posting.id %}"><img src="{{ reImage.image.url}}" width="200"></a><br>
                                 <b><a href="{% url 'tabo:detail' posting.id %}">{{ posting.subject }}</a></b><br>
@@ -72,30 +72,6 @@
         {% endif %}
 
     </table>
-<!--    <table class="table">-->
-<!--        <thead>-->
-<!--        <tr class="thead-dark" style="text-align:center;">-->
-<!--            <th style="width:10%">번호</th>-->
-<!--            <th width="10%">태그</th>-->
-<!--            <th width="40%">제목</th>-->
-<!--            <th width="10%">작성자</th>-->
-<!--            <th>작성일시</th>-->
-<!--            <th width="10%">조회수</th>-->
-<!--            <th width="10%">추천</th>-->
-<!--        </tr>-->
-<!--        </thead>-->
-<!--        <tbody>-->
-<!--        {% if posting_list %}-->
-<!--        <tr class="text-center" style="text-align:center;">-->
-
-<!--        </tr>-->
-<!--        {% else %}-->
-<!--        <tr>-->
-<!--            <td colspan="3">게시글이 없습니다.</td>-->
-<!--        </tr>-->
-<!--        {% endif %}-->
-<!--        </tbody>-->
-<!--    </table>-->
 
     <!-- 페이징처리 시작 -->
     <ul class="pagination justify-content-center">

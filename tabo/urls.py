@@ -37,6 +37,7 @@ urlpatterns = [
 
     # tagSearch_views.py
     path('tag/', tagSearch_views.show_tags, name='show_tags'),
+    # path('tag/addtag/', tagSearch_views.add_tag, name='add_tag'),
 
     # info_views.py
     path('info/', info_views.show_info, name='show_info'),

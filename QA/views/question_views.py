@@ -8,6 +8,7 @@ from ..forms import QuestionForm
 from ..models import Question
 
 from utils.commonMethod import canDelete
+from utils.tagList import tagList
 
 
 @login_required(login_url='common:login')
@@ -22,7 +23,7 @@ def question_create(request):
             return redirect('QA:QAList')
     else:
         form = QuestionForm()
-    context = {'form': form}
+    context = {'form': form, 'tag_list': tagList}
     return render(request, 'QA/question_form.html', context)
 
 
@@ -42,7 +43,7 @@ def question_modify(request, question_id):
             return redirect('QA:detail', question_id=question.id)
     else:
         form = QuestionForm(instance=question)
-    context = {'form': form}
+    context = {'form': form, 'tag_list': tagList}
     return render(request, 'QA/question_form.html', context)
 
 
