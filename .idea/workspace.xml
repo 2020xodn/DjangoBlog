@@ -1,29 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aaed9d69-2339-4e9a-b91b-d37e80c3cc37" name="Default Changelist" comment="Posting 4*4 Layout">
-      <change afterPath="$PROJECT_DIR$/templates/tag/add_tag.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/tagList.py" afterDir="false" />
+    <list default="true" id="aaed9d69-2339-4e9a-b91b-d37e80c3cc37" name="Default Changelist" comment="Tag Util">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QA/views/question_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/QA/views/question_views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/images/1623427331.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/images/1623427331_2Oja2Mb.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/images/1623427331_FNasvG6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/images/1623499600.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/images/1623499601.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/images/1623499601_WtBU28i.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/commentArrow.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/commentArrow.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tabo/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/tabo/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tabo/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/tabo/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tabo/templatetags/tabo_filter.py" beforeDir="false" afterPath="$PROJECT_DIR$/tabo/templatetags/tabo_filter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tabo/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/tabo/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tabo/views/posting_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/tabo/views/posting_views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tabo/views/tagSearch_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/tabo/views/tagSearch_views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/QA/question_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/QA/question_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/tabo/posting_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/tabo/posting_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/tabo/posting_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/tabo/posting_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tabo/views/base_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/tabo/views/base_views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tabo/views/info_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/tabo/views/info_views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/main/main_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main/main_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sidebar.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/tag/tag_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/tag/tag_page.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -97,7 +81,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623530548817</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Tag Util">
+      <created>1623654563656</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1623654563656</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -114,6 +105,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Posting 4*4 Layout" />
-    <option name="LAST_COMMIT_MESSAGE" value="Posting 4*4 Layout" />
+    <MESSAGE value="Tag Util" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tag Util" />
   </component>
 </project>

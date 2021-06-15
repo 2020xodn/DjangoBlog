@@ -12,6 +12,7 @@ import datetime
 def index(request):
     page = request.GET.get('page', '1')  # 페이지
     kw = request.GET.get('kw', '')  # 검색어
+    searchTag = request.GET.get('searchTag', '')  # 검색어
     so = request.GET.get('so', 'recent')  # 정렬기준
     # tags = request.GET.get('tags', '')
 
@@ -34,6 +35,11 @@ def index(request):
             Q(content__icontains=kw) |  # 내용
             Q(author__username__icontains=kw) |  # 질문 글쓴이검색
             Q(comment_p__author__username__icontains=kw) # 답변 글쓴이검색
+        ).distinct()
+
+    if searchTag:   # 오직 태그 검색
+        posting_list = posting_list.filter(
+            Q(tag=searchTag)  # 태그는 정확히
         ).distinct()
 
     paginator = Paginator(posting_list, 12)  # 페이지당 10개씩 보여주기

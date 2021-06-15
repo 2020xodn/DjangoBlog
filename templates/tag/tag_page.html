@@ -28,7 +28,7 @@
 
 
     <form id="searchForm" method="get" action="{% url 'index' %}">
-        <input type="hidden" id="kw" name="kw" value="{{ kw|default_if_none:'' }}">
+        <input type="hidden" id="searchTag" name="searchTag" value="{{ kw|default_if_none:'' }}">
         <input type="hidden" id="page" name="page" value="{{ page }}">
     </form>
 </div>
@@ -42,7 +42,7 @@ $(document).ready(function(){
     });
 
     $(".tagBox").on('click', function() {
-        $("#kw").val($(this).val());
+        $("#searchTag").val($(this).val());
         $("#searchForm").submit();
     });
 });

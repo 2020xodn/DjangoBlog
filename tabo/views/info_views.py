@@ -3,9 +3,9 @@ from django.shortcuts import render, get_object_or_404
 
 def show_info(request):
     info_data = [
-        ["이름", "내이름"],
-        ["학과", "컴공"],
-        ["학번", "17~"],
+        ["이름", "dd"],
+        ["학과", "aaa"],
+        ["학번", "fff"],
         ["분야", "Java, Unity"],
         ["메일", "B L I N D !"],
         ["깃허브", "https://github.com/2020xodn"],
